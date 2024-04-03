@@ -1,0 +1,26 @@
+<div class="container mt-4">
+    <h2>Nouvelle Participation</h2>
+    <form (submit)="submitForm()">
+        <div class="mb-3">
+            <label for="eventId" class="form-label">ID de l'événement</label>
+            <input type="number" class="form-control" id="eventId" [(ngModel)]="participation.eventId" name="eventId" disabled required>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="participation.lastName" name="lastName" required>
+        </div>
+        <div class="mb-3">
+            <label for="firstName" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="participation.firstName" name="firstName" required>
+        </div>
+        <div class="mb-3">
+            <label for="number" class="form-label">Numéro</label>
+            <input type="text" class="form-control" id="number" [(ngModel)]="participation.number" name="number" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="participation.email" name="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter Participation</button>
+    </form>
+</div>

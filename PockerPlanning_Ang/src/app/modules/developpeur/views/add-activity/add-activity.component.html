@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h2>Nouvelle Activité</h2>
+  <form (submit)="submitForm()">
+    <div class="mb-3">
+      <label for="eventId" class="form-label">Event</label>
+      <select class="form-select" id="eventId" [(ngModel)]="activity.event" name="event" required>
+        <option value="" disabled selected>Select Event</option>
+        <option *ngFor="let event of events" [ngValue]="event">{{ event.name }}</option>
+      </select>
+    </div>
+    
+    
+    <div class="mb-3">
+      <label for="name" class="form-label">Activity</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="activity.name" name="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" [(ngModel)]="activity.description" name="description" rows="3" required></textarea>
+    </div>
+    
+    <div class="mb-3">
+      <label for="hour" class="form-label">Hour </label>
+      <select  [(ngModel)]="activity.hour" class="form-control" name="time">
+          <option *ngFor="let option of amPmOptions" [value]="option">
+              {{ option >= 12 ? option % 12 || 12 : option }} {{ option >= 12 ? 'PM' : 'AM' }}
+          </option>
+      </select>
+      
+    </div>
+    <div class="mb-3">
+      <label for="nbPerson" class="form-label">Number of person</label>
+      <input type="number" class="form-control" id="nbPerson" [(ngModel)]="activity.nbPerson" name="nbPerson" required>
+    </div>
+    <div class="mb-3">
+      <label for="picture" class="form-label">Picture</label>
+      <input type="file" class="form-control" id="picture" [(ngModel)]="activity.picture" name="picture" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Activity</button>
+  </form>
+</div>

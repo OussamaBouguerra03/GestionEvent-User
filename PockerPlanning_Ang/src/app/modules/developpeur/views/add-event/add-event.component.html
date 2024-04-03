@@ -1,0 +1,66 @@
+<!-- Edit profile START -->
+
+<div class="card bg-transparent border rounded-3">
+  <!-- Card header -->
+  <div class="card-header bg-transparent border-bottom">
+    <h3 class="card-header-title mb-0">New Event</h3>
+  </div>
+  <!-- Card body START -->
+  <div class="card-body">
+    <!-- Form -->
+    <form (submit)="submitForm()">
+      <!-- Profile picture -->
+      <div class="col-12 justify-content-center align-items-center">
+         <div class="d-flex align-items-center">
+             <!-- Avatar place holder -->
+            <span class="avatar avatar-xl">
+              <input class="btn btn-primary-soft mb-0" for="uploadfile-1" type="file" class="form-control" id="image" [(ngModel)]="event.image" name="price" required>
+            </span>
+          
+        </div>
+      </div>
+
+      <!-- Full name -->
+      <div class="col-12">
+        <label class="form-label">Event name</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="name" [(ngModel)]="event.name" name="name" required>
+         </div>
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Adress</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="event.address" name="address" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="event.description" name="address" required>
+      </div>
+      <div class="mb-3">
+        <label for="eventDate" class="form-label">Event date</label>
+        <input type="date" class="form-control" id="eventDate" [(ngModel)]="event.eventDate" name="eventDate" required>
+      </div>
+      <div class="mb-3">
+        <label for="nbPlace" class="form-label">Number of places</label>
+        <input type="number" class="form-control" id="nbPlace" [(ngModel)]="event.nbPlace" name="nbPlace" required>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" [(ngModel)]="event.price" name="price" required>
+      </div>
+      <div class="mb-3">
+        <label for="hour" class="form-label">Event time</label>
+        <input type="time" [(ngModel)]="event.hour" class="form-control" name="time">
+    </div>
+    
+
+
+      <!-- Save button -->
+      <div class="d-sm-flex justify-content-end">
+        <button type="submit"   class="btn btn-primary">Add Event</button>
+      </div>
+    </form>
+  </div>
+  <!-- Card body END -->
+</div>
+<!-- Edit profile END -->
+

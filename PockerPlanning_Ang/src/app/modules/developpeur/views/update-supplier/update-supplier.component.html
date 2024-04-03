@@ -1,0 +1,26 @@
+<div class="container mt-4">
+    <h2>Update Supplier</h2>
+    <form (submit)="updateSupplier()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Supplier Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="supplier.name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="numPhone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="numPhone" [(ngModel)]="supplier.numPhone" name="numPhone" required>
+      </div>
+      <div class="mb-3">
+        <label for="adress" class="form-label">Adress</label>
+        <input type="text" class="form-control" id="adress" [(ngModel)]="supplier.adress" name="adress" required>
+      </div>
+      <div class="mb-3">
+        <label for="dateDelivery" class="form-label">Delivery Date</label>
+        <input type="date" class="form-control" id="dateDelivery" [(ngModel)]="supplier.dateDelivery" name="dateDelivery" required>
+      </div>
+      <div class="mb-3">
+        <label for="hourDelivery" class="form-label">Delivery Hour</label>
+        <input type="text" class="form-control" id="hourDelivery" [(ngModel)]="supplier.hourDelivery" name="hourDelivery" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Supplier</button>
+    </form>
+</div>

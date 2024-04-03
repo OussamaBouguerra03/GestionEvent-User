@@ -1,0 +1,26 @@
+<div class="container mt-4">
+    <h2>Update Activity</h2>
+    <form (submit)="updateActivity()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Activity Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="activity.name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" [(ngModel)]="activity.description" name="description" rows="3" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="hour" class="form-label">Hour</label>
+        <input type="text" class="form-control" id="hour" [(ngModel)]="activity.hour" name="hour" required>
+      </div>
+      <div class="mb-3">
+        <label for="nbPerson" class="form-label">Number of person</label>
+        <input type="number" class="form-control" id="nbPerson" [(ngModel)]="activity.nbPerson" name="nbPerson" required>
+      </div>
+      <div class="mb-3">
+        <label for="Image" class="form-label">Picture</label>
+        <input type="file" class="form-control" id="picture" [(ngModel)]="activity.picture" name="Image" required>
+    </div>
+      <button type="submit" class="btn btn-primary">Update Activity</button>
+    </form>
+  </div>

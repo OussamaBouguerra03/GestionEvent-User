@@ -1,0 +1,98 @@
+<div class="card bg-transparent border rounded-3">
+  <!-- Card header START -->
+  <div class="card-header bg-transparent border-bottom">
+    <h3 class="mb-0">Liste of Event</h3>
+    <div class="col-md-3">
+      <button type="button" (click)="addEvent()" class="btn btn-outline-info">New Event</button>
+    </div>
+  </div>
+  <!-- Card header END -->
+
+  <!-- Card body START -->
+  <div class="card-body p-3 p-md-4">
+    <div class="row g-4">
+      <!-- Loop through events -->
+      <div class="col-sm-6 col-lg-4" *ngFor="let event of eventList">
+        <div class="card shadow h-100">
+          <!-- Boutons de modification et de suppression -->
+          <div class="d-flex justify-content-end mb-2">
+            <button type="button" (click)="deleteEvent(event.idEvent)" class="btn btn-link delete-button">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+            <button type="button" (click)="updatevent(event.idEvent)" class="btn btn-link update-button">
+              <i class="fas fa-edit"></i>
+            </button>
+          </div>
+          <!-- Image -->
+          <img src="assets/images/{{event.image}}" class="card-img-top" alt="course image">
+          <div class="card-body pb-0">
+            <!-- Badge and favorite -->
+            <div class="d-flex justify-content-between mb-2">
+              <a href="#" class="badge bg-success bg-opacity-10 text-success">{{ event.name }}</a>
+              <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+            </div>
+            <!-- Title -->
+            <h5 class="card-title fw-normal"><a href="#"> </a></h5>
+            <p class="mb-2 text-truncate-2">{{ event.address }}</p>
+            <p class="mb-2 text-truncate-2">{{ event.description }}</p>
+            <p class="mb-2 text-truncate-2">{{ event.price | currency: 'DT':true }}</p>
+          </div>
+          <!-- Rating -->
+          <div class="card-footer pt-0 pb-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="h6 fw-light mb-0">
+                <i class="far fa-clock text-danger me-2"></i>
+                {{ event.eventDate | date: 'mediumDate' }} {{ event.hour }}:00 H
+              </span>
+              <span class="h6 fw-light mb-0">
+                <i class="fas fa-table text-orange me-2"></i>{{ event.nbPlace }}
+              </span>
+             
+            </div>
+            <div class="rating">
+              <!-- Afficher le rating existant -->
+              
+              <span *ngFor="let i of [1, 2, 3, 4, 5]">
+                <button type="button" class="btn btn-link" (click)="rateEvent(event.idEvent, i)">
+                    <ng-container *ngIf="i <= event.rating">
+                        <i class="fas fa-star text-warning"></i>
+                    </ng-container>
+                    <ng-container *ngIf="i > event.rating && i - 1 < event.rating">
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                    </ng-container>
+                    <ng-container *ngIf="i > event.rating + 0.5">
+                        <i class="far fa-star text-muted"></i>
+                    </ng-container>
+                </button>
+            </span>
+            
+              
+            
+            </div>
+             
+            
+            <button class="btn btn-outline-primary" (click)="showActivities(event.idEvent)">Activity</button>
+            <button class="btn btn-outline-primary" (click)="showParticipationForm(event.idEvent)">Participate</button>
+
+          </div>
+        </div>
+        
+      </div>
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <button class="page-link" (click)="prevPage()">Previous</button>
+          </li>
+          <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+            <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <button class="page-link" (click)="nextPage()">Next</button>
+          </li>
+        </ul>
+      </nav>
+      
+    </div>
+  </div>
+  <!-- Card body END -->
+</div>

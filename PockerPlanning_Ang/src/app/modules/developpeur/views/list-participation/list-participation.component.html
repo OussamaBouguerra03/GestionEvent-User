@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Statistiques des participations
+        </div>
+        <div class="card-body">
+          <p>
+            <span class="icon"><i class="fas fa-users"></i></span>
+            <strong><i class="fas fa-user"></i> Nombre total de participations :</strong> {{ participationCount }}
+          </p>
+
+          <div *ngIf="eventParticipationCounts.length > 0">
+            <h5>Répartition des participations par événement :</h5>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let eventCount of eventParticipationCounts">
+                <span class="icon"><i class="fas fa-calendar-alt"></i></span> Événement {{ eventCount.eventId }} : <strong>{{ eventCount.count }}</strong> participations
+              </li>
+            </ul>
+          </div>
+
+          <div *ngIf="eventParticipationCounts.length === 0">
+            <p class="no-participation">
+              <span class="icon"><i class="far fa-sad-tear"></i></span>
+              Aucune participation enregistrée pour le moment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- add-event.component.html -->
+<div class="card border bg-transparent rounded-3">
+    <!-- Card header START -->
+    <div class="card-header bg-transparent border-bottom">
+      <h3 class="mb-0">Liste des participations</h3>
+    </div>
+    <div class="col-md-3">
+        <button type="button" routerLink="/add-participation" class="btn btn-outline-info">Nouvelle Participation</button>
+    </div>
+    <!-- Card header END -->
+  
+    <!-- Card body START -->
+    <div class="card-body">
+  
+      <!-- Search and select START -->
+      <div class="row g-3 align-items-center justify-content-between mb-4">
+       
+        
+      </div>
+   
+      <!-- Order list table START -->
+      <div class="table-responsive border-0">
+        <!-- Table START -->
+        <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+          <!-- Table head -->
+          <thead>
+            <tr>
+              <th scope="col" class="border-0 rounded-start">Nom</th>
+              <th scope="col" class="border-0">Prénom</th>
+              <th scope="col" class="border-0">Numéro</th>
+              <th scope="col" class="border-0">Email</th>
+              <th scope="col" class="border-0 rounded-end">Actions</th>
+            
+            </tr>
+          </thead>
+  
+          <!-- Table body START -->
+          <tbody>
+            <tr *ngFor="let participation of participationList">
+                <td>{{ participation.lastName }}</td>
+                <td>{{ participation.firstName }}</td>
+                <td>{{ participation.number }}</td>
+                <td>{{ participation.email }}</td>
+                <td>
+                    <button type="button" (click)="deleteParticipation(participation.idParticipation)" class="btn btn-outline-danger mx-2">
+                        <i class="fas fa-trash-alt"></i> <!-- Icône de corbeille -->
+                    </button>
+                    <button type="button" (click)="updateParticipation(participation.idParticipation)" class="btn btn-outline-success">
+                        <i class="fas fa-edit"></i> <!-- Icône de modification -->
+                    </button>
+                </td>
+                
+            
+             </tr>
+          </tbody>
+          <!-- Table body END -->
+        </table>
+        <!-- Table END -->
+      </div>
+      

@@ -1,0 +1,89 @@
+<div class="card bg-transparent border rounded-3">
+  <!-- Card header START -->
+  <div class="card-header bg-transparent border-bottom">
+    <h3 class="mb-0">List of activities</h3>
+    <div class="col-md-3">
+      <button type="button" (click)="addActivity()" class="btn btn-outline-info">New Activity</button>
+    </div>
+  </div>
+  <!-- Card header END -->
+
+  <!-- Card body START -->
+  <div class="card-body p-3 p-md-4">
+    <div class="row g-4">
+      <!-- Loop through activities -->
+      <div class="col-sm-6 col-lg-4" *ngFor="let activity of activityList">
+        <div class="card shadow h-100">
+          <!-- Boutons de modification et de suppression -->
+          <div class="d-flex justify-content-end mb-2">
+            <button type="button" (click)="deleteActivity(activity.idActivity)" class="btn btn-link delete-button">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+            <button type="button" (click)="updateActivity(activity.idActivity)" class="btn btn-link update-button">
+              <i class="fas fa-edit"></i>
+            </button>
+          </div>
+          <!-- Image -->
+          <img src="assets/images/{{activity.picture}}"class="card-img-top" alt="course image" alt="{{activity.name}}.jpg"   />
+          <div class="card-body pb-0">
+            <!-- Badge and favorite -->
+            <div class="d-flex justify-content-between mb-2">
+              <a href="#" class="badge bg-success bg-opacity-10 text-success">{{ activity.name }}</a>
+              <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+            </div>
+            <!-- Title -->
+            <h5 class="card-title fw-normal"><a href="#"> </a></h5>
+            <p class="mb-2 text-truncate-2">{{ activity.idActivity }}</p>
+            <p class="mb-2 text-truncate-2">{{ activity.description }}</p>
+            <p class="mb-2 text-truncate-2">{{ activity.hour }}:00 H</p>
+            <p class="mb-2 text-truncate-2"><i class="fas fa-table text-orange me-2"></i>{{ activity.nbPerson }}</p>
+            
+            <div *ngFor="let activite of activites">
+              <div>
+                <button (click)="showComments(activite)" class="show-comments-btn">Show Comments</button>
+              </div>
+            </div>
+            
+            <div *ngIf="selectedActivite">
+              <ul class="comment-list">
+                <li *ngFor="let commentaire of commentaires" class="comment-item">
+                  <div class="comment-avatar">
+                    <img src="{{ commentaire.user.picture }}" alt="Avatar">
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <span class="comment-author">{{ commentaire.user.lastname }} {{ commentaire.user.firstname }}</span>
+                     </div>
+                    <div class="comment-text">{{ commentaire.contenue }}</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+
+            <form (ngSubmit)="submitCommentaire()">
+              <div class="mb-3">
+                <label for="contenue" class="form-label">Comment</label>
+                <input type="text" class="form-control" id="contenue" [(ngModel)]="com.contenue" name="contenue" required>
+                <!-- Ajoutez des validations requises pour vous assurer que le contenu du commentaire est obligatoire -->
+                <input type="hidden" name="id_activity" [value]="com.id_activity">
+              </div>
+              <!-- Ajoutez le champ id_activity s'il est nécessaire pour lier le commentaire à une activité -->
+              <button type="submit" class="btn btn-primary">Add Comment</button>
+            </form>
+            
+            
+          </div>
+        </div>
+      </div>
+      <!-- Autre contenu de votre template -->
+
+<!-- Formulaire de commentaire -->
+
+
+<!-- Autre contenu de votre template -->
+
+    </div>
+  </div>
+  <!-- Card body END -->
+</div>

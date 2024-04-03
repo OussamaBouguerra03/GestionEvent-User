@@ -1,0 +1,84 @@
+/* Style de la carte */
+.card {
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style de l'en-tête de la carte */
+  .card-header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  /* Style du titre de l'en-tête */
+  .card-header h2 {
+    margin: 0;
+  }
+  
+  /* Style du corps de la carte */
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Style du paragraphe à l'intérieur du corps de la carte */
+  .card-body p {
+    margin-bottom: 10px;
+  }
+  
+  /* Style de la liste à l'intérieur du corps de la carte */
+  .card-body ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Style des éléments de liste à l'intérieur du corps de la carte */
+  .card-body li {
+    padding: 10px;
+    border-bottom: 1px solid #e9ecef;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Style des éléments de liste au survol */
+  .card-body li:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Style du lien dans les éléments de liste */
+  .card-body li a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Style des liens au survol */
+  .card-body li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Style du pied de la carte */
+  .card-footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  /* Style du bouton dans le pied de la carte */
+  .card-footer button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Style du bouton au survol */
+  .card-footer button:hover {
+    background-color: #0056b3;
+  }
+  
